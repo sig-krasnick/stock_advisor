@@ -5,13 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - 2.5.5
 
-* System dependencies
+* System dependencies - https://intrinio.com - Must have an Intrinio API Key set in config/initializer/intrinio.rb
 
 * Configuration
 
-* Database creation
+* Database creation - sqlLite db
 
 * Database initialization
 
