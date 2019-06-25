@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identifier: MyString
+  description: MyString
+  last_price: 
+  last_price: 
+  current_price: 
+  current_price: 
+
+two:
+  identifier: MyString
+  description: MyString
+  last_price: 
+  last_price: 
+  current_price: 
+  current_price: 

@@ -1,0 +1,65 @@
+<% if user_signed_in? %>
+  <p class="lead">Welcome <%= current_user.email %>! Here are our<br> recommendations for your stocks:</p>
+<% else %>
+  <h1>Welcome to Stock Advisor!</h1>
+  <br>
+    <p class="lead center-text"> Login to view your stock portfolio and our current recommendations
+    <br>
+      or search for a stock to view current prices
+    </p>
+<% end %>
+
+<%= simple_form_for :search, url: root_path, method: "GET",
+                    html: { class: 'form-inline justify-content-center' } do |f| %>
+      <%= f.input :stock, input_html: {value: ""} %>
+      <%= f.submit "Search", class: "btn btn-primary" %>
+      <br><br>
+  <% end %>
+
+<% if @stocks && @stocks.count > 0 %>
+ <div class="container">
+  <%= simple_form_for :add, url: stocks_path,
+                      html: { class: 'form-inline justify-content-center' } do |f| %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 offset-sm-2">
+          <% @stocks.each do |stock| %>
+            <form-group>
+            <h5 class="inline"><%= stock.identifier %></h5>
+            <%= f.submit "Add" if user_signed_in?  %>
+            <%= f.input :stock, as: :hidden, input_html: {value: stock.identifier}%>
+            </form-group>
+            <p class="long_description"><%= stock.description %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+ <% end %>
+
+ <% if user_signed_in?  && current_user.stocks.count > 0 %>
+  <% user_stocks = current_user.stocks %>
+  <table class="table table-sm">
+    <thead class = "thead-light">
+      <tr>
+        <th>SYMB</th>
+        <th>CurrPrice</th>
+        <th>YestPrice</th>
+        <th>Change</th>
+        <th>Recc</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% user_stocks.each do |stock| %>
+        <tr class="noborders">
+          <td class="border"><%= stock.identifier %></td>
+          <td class="border"><%= stock.current_price  %></td>
+          <td class="border"><%= stock.last_price %></td>
+          <td class="border"><%= stock.delta %></td>
+          <td class="border"><%= stock.recommendation %></td>
+          <td><%= link_to '', stock, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-alt"  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,0 +1,73 @@
+// $navbar-default-bg: #312312;
+// $light-orange: #ff8c00;
+// $navbar-default-color: $light-orange;
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bootstrap";
+@import "sticky-footer";
+
+// Fixes bootstrap nav-brand container overlap
+@include media-breakpoint-down(xs) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+h1, p.lead {
+  text-align: center ;
+}
+
+p.lead {
+  margin-bottom: .5rem ;
+}
+
+.form-inline {
+  margin-bottom: 1rem;
+}
+
+label.form-control-label {
+  margin-right: 5px;
+}
+
+input.form-control {
+  margin-right: 2px;
+}
+
+.long_description {
+  font-size: 0.8rem ;
+}
+
+.border {
+  border: 1px solid #080808;
+}
+
+.noborders td {
+  border:0;
+}
+
+.inline {
+  display: inline;
+  padding-right: 10px;
+}
+
+.table {
+  width: 60%;
+  margin-left: 25%;
+  margin-right: 15% ;
+  margin-top: 1rem;
+}
+
+a.delete {
+  &:before {
+    font-family: "FontAwesome";
+    @extend .fa-trash;
+    padding-right: 0.5em;
+  }
+}
+// Masquerade alert shouldn't have a bottom margin
+body > .alert {
+  margin-bottom: 0;
+}
+
