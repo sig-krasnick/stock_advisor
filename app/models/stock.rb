@@ -15,9 +15,10 @@ class Stock < ApplicationRecord
       max_price, min_price = sort_price(result[1])
 
       stock = Stock.find_or_create_by(identifier: symbol)
-      @stocks = [stock.update(description: result[0].short_description,
-                              last_price: min_price.close, current_price: max_price.close,
-                              created_at: DateTime.now, updated_at: max_price.date)]
+      stock.update(description: result[0].short_description,
+        last_price: min_price.close, current_price: max_price.close,
+        created_at: DateTime.now, updated_at: max_price.date)
+      @stocks = [stock.reload]
     end
 
     def sort_price(price_list)
