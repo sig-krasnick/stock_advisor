@@ -22,5 +22,9 @@ test:
 
 production:
   <<: *default
+  host: aabrb504tv407g.cvussjjphjya.us-east-1.rds.amazonaws.com
   adapter: postgresql
-  database: db/production.sqlite3
+  database: stock_advisor_staging
+  username: fudgy
+  password: Fudgecicle
+  host: 5432
