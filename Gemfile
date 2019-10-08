@@ -27,10 +27,10 @@ gem 'devise', '~> 4.6', '>= 4.6.1'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'
 gem 'webpacker', '~> 4.0.1'
-gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
+gem 'gravatar_image_tag'
 gem 'data-confirm-modal'
 gem 'simple_form'
-gem 'intrinio-sdk', :git => 'https://github.com/intrinio/ruby-sdk.git'
+gem 'intrinio-sdk'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
